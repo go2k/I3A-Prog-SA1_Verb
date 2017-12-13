@@ -10,7 +10,7 @@ public class Block {
 
     public static void main(String[] args) {
         Block block = new Block(13, 1512457369, "Start:", "0");
-        System.out.println(block.hashBlock());
+
     }
 
     public Block() {

@@ -9,21 +9,18 @@ public class GBSBlockchain {
     private List<Block> blocks;
 
     public GBSBlockchain() {
-
         blocks = new ArrayList<>();
         this.readBlocks();
-
     }
 
     private void readBlocks() {
-
         BlockService blockService = new BlockService();
         List<Block> allBlocks = blockService.getAllBlocks();
         blockService.close();
 
         Block block0 = findNextBlock("0", allBlocks);
         blocks.add(block0);
-
+        System.out.println(block0.getPrev_hash());
         Block nextBlock = block0;
         while ((nextBlock = findNextBlock(block0.getSelf_hash(), allBlocks)) != null) {
             blocks.add(nextBlock);
